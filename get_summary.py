@@ -4,7 +4,21 @@ from summarizators.luhn_summarizator import LuhnSummarizator
 
 def get_summary(input_file_path, out_dir = 'data/', method = 'Luhn'):
     """
-    Returns a textual message
+    Функцция получает саммари из содержимого
+    входного файла и замисывает его в выходной
+
+    Parameters
+    ----------
+    input_file_path:
+    Путь к входному файлу
+
+    out_dir:
+    Дириктория для сохранения выходного
+    файла с саммари
+
+    method:
+    Метод для суммаризации, на данный момент
+    доступен только Luhn
     """
     if method == 'Luhn':
         summarizator = LuhnSummarizator()
