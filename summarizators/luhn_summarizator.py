@@ -8,9 +8,9 @@ from nltk.corpus import stopwords
 
 
 
-from base_summarizator import BaseSummarizator
+from summarizators.base_summarizator import BaseSummarizator
 
-class Luhnummarizator(BaseSummarizator):
+class LuhnSummarizator(BaseSummarizator):
     """
     Класс реализующий суммаризацию Луна
     https://courses.ischool.berkeley.edu/i256/f06/papers/luhn58.pdf
@@ -85,7 +85,7 @@ class Luhnummarizator(BaseSummarizator):
         sum_sent_quantile = self.sum_sent_procentile / 100
         sf_treshhold = self.sent_table['significant_factor'].quantile(sum_sent_quantile)
         out_df = self.sent_table[self.sent_table['significant_factor'] > sf_treshhold]
-        out = '(Предложение)'+'\n (Предложение)'.join(out_df['text'])
+        out = '(Предложение)'+'\n (Предложение)'.join(out_df['sent'])
         return out
 
     def calculate_significant_word_list(self):
