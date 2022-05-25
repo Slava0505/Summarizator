@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(filename='logs/app.log', level=logging.INFO, format='%(asctime)s - %(message)s',
                     datefmt='%d-%b-%y %H:%M:%S', filemode="a")
 
-def logging(log):
+def log_something(log):
     logging.info(log)
 
 def get_summary(input_file_path='data/example_text_ru.txt', out_dir = 'data/', method = 'Luhn'):
@@ -33,7 +33,7 @@ def get_summary(input_file_path='data/example_text_ru.txt', out_dir = 'data/', m
 
     lang = lang_identify(text)
     print(f'Язык текста: {lang}')
-    logging(f'Язык текста определен успешно: {lang}')
+    log_something(f'Язык текста определен успешно: {lang}')
 
     summed_text = summarizator.sum_text(text)
     input_file_name = input_file_path.split('/')[-1]
@@ -41,7 +41,7 @@ def get_summary(input_file_path='data/example_text_ru.txt', out_dir = 'data/', m
     out_file = open(output_file_path, 'w', encoding='utf-8')
     out_file.write(summed_text)
     out_file.close()
-    logging(f'Суммаризация звершена успешно. Создан файл {output_file_path}')
+    log_something(f'Суммаризация звершена успешно. Создан файл {output_file_path}')
 
 if __name__ == '__main__':
     fire.Fire(get_summary)

@@ -3,3 +3,7 @@
 /.idea/Summarizator.iml
 /data/summed_example_text_ru.txt
 /data/summed_example_text_eng.txt
+/.idea/encodings.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
