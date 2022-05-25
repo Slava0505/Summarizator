@@ -2,7 +2,7 @@ import fire
 from summarizators.luhn_summarizator import LuhnSummarizator
 
 
-def get_summary(input_file_path, out_dir = 'data/', method = 'Luhn'):
+def get_summary(input_file_path='data/example_text_ru.txt', out_dir = 'data/', method = 'Luhn'):
     """
     Функцция получает саммари из содержимого
     входного файла и замисывает его в выходной
