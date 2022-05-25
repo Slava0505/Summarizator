@@ -85,7 +85,7 @@ class LuhnSummarizator(BaseSummarizator):
         sum_sent_quantile = self.sum_sent_procentile / 100
         sf_treshhold = self.sent_table['significant_factor'].quantile(sum_sent_quantile)
         out_df = self.sent_table[self.sent_table['significant_factor'] > sf_treshhold]
-        out = '(Предложение)'+'\n (Предложение)'.join(out_df['sent'])
+        out = '\n'.join(out_df['sent'])
         return out
 
     def calculate_significant_word_list(self):
