@@ -1,0 +1,4 @@
+langdetect
+pandas
+sklearn
+nltk
