@@ -29,13 +29,19 @@ def get_summary(input_file_path='data/example_text_ru.txt', out_dir = 'data/', m
     """
     if method == 'Luhn':
         summarizator = LuhnSummarizator()
-    text = open(input_file_path, encoding='utf-8').read()
-
+    try:
+        text = open(input_file_path, encoding='utf-8').read()
+    except:
+        log_something(f'При подгрузке файла что-то пошло не так')
     lang = lang_identify(text)
     print(f'Язык текста: {lang}')
     log_something(f'Язык текста определен успешно: {lang}')
 
-    summed_text = summarizator.sum_text(text)
+    try:
+        summed_text = summarizator.sum_text(text)
+    except:
+        log_something(f'При суммаризации что-то пошло не так')
+
     input_file_name = input_file_path.split('/')[-1]
     output_file_path = out_dir + 'summed_' + input_file_name
     out_file = open(output_file_path, 'w', encoding='utf-8')
